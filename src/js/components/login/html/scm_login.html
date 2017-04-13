@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11"><!--IE11 mode-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10"><!--IE10 mode-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"><!--IE9 mode-->
+    <title>PMS login</title>
+    <link rel="stylesheet" href="../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <div class="row login">
+        <div class="col-md-12 pmsbg"><img src="../images/antwork-pms.png"> </div>
+        <div class="col-md-6 inputUl">
+            <ul>
+                <li><input type="text" id="account" /></li>
+                <li><input type="password" id="password"/></li>
+                <li><button id="button_login">登录</button></li>
+            </ul>
+        </div>
+        <div class="col-md-6 pc"><img src="../images/pc.png"> </div>
+        <div class="col-md-12 foot">CopyRight @ 2010-2017 曼威网络科技（上海）有限公司 版权所有</div>
+    </div>
+
+
+<script src="../js/scm_login.js"></script>
+<script type="text/javascript">
+    var scmLogin = new SCM_Login();
+
+    $(function(){
+        scmLogin.init();
+    })
+</script>
+</body>
+</html>

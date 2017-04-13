@@ -1,0 +1,69 @@
+
+<div class="panel-group" id="tableComponent1" style="margin-bottom:0;">
+    <div class="panel panel-info">
+        <div class="title">
+            <span class="glyphicon glyphicon-search"></span>
+            检索
+        </div>
+        <div id="tableComponentOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="tableComponent1">
+            <div class="panel-body">
+                <form class="navbar-form row" role="search">
+                    <select style="min-width:180px;float:left;margin-right:10px" ng-change="Type(searchSelectType1)" ng-model="searchSelectType1" class="form-control" value="" ng-options="item as item.name for item in selectType1 track by item.code"></select>
+                    <select style="min-width:180px;float:left;margin-right:10px" ng-click="look(this)" ng-model="searchSelectType2" class="form-control" value="" ng-options="item as item.text for item in selectType2 track by item.id"></select>
+                    <span class="text_Box" ng-show="tag==1"  >
+                        <input  style="width:20%;float:left;margin-right:10px"   class="form-control" name="searchSelectValue" placeholder="请输入查询条件.." ng-model="searchSelectValue"/>
+                    </span>
+                    <div class="date_Box" style="float:left;width:560px;margin-right:10px"  ng-show="tag==2">
+                        <input style="width:250px;float:left;margin-right:5px" type="text" placeholder="yyyy-mm-dd" class="form-control" uib-datepicker-popup name="END_DATE" ng-model="customer.END_DATE" is-open="popup[1].opened" datepicker-options="dateOptions" close-text="Close" ng-click="open(1)"/>
+                        <span style="float:left;margin-right:5px;text-align: center;line-height: 30px">至</span>
+                        <input style="width:250px;float:left;margin-right:5px" type="text" placeholder="yyyy-mm-dd" class="form-control" uib-datepicker-popup name="END_DATE" ng-model="customer.END_DATE" is-open="popup[1].opened" datepicker-options="dateOptions" close-text="Close" ng-click="open(1)"/>
+                    </div>
+                    <span class="text_Box"   ng-show="tag==3">
+                        <select  class="form-control" ng-model="selectName" value="" ng-options="item as item.text for item in selectData track by item.id" style="width:250px;float:left;margin-right:5px"></select>
+                    </span>
+                    <button type="button" style="float:left;margin-right:10px" class="btn btn-primary" ng-click="fuzzySearch()">查询</button>
+                    <button type="button" style="float:left" class="btn btn-primary" ng-click="$ctrl.highSearch()">高级查询</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="panel-group" id="tableComponent2" style="margin-bottom:0;">
+    <div class="panel panel-info">
+        <div class="title">
+            <span class="glyphicon glyphicon-list"></span>
+            列表
+        </div>
+        <div id="tableComponentTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="tableComponent2">
+            <!-- 数据内容加载后会load出页面的内容 -->
+            <div class="panel-data" ng-if="loadFlag">
+                <div uib-alert dismiss-on-timeout="{{alert.timeout}}" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+                <button type="button" class="btn btn-primary" ng-click="add()">新增</button>
+                <button type="button" class="btn btn-primary" ng-click="modify()">修改</button>
+                <!--<button type="button" class="btn btn-primary" ng-click="delete()">删除</button>-->
+                <button type="button" class="btn btn-primary" ng-click="enabled()">启用</button>
+                <button type="button" class="btn btn-primary" ng-click="disabled()">禁用</button>
+                <button type="button" class="btn btn-primary" ng-click="cancelled()">作废</button>
+                <div class="_grid"><div id="treeGrid" class="easyui-treegrid" ng-show="treegrid==false"></div></div>
+                <div class="_datagrid"><div id="dataGrid" class="easyui-datagrid" ng-show="datagrid==false"></div></div>
+                <div ng-class="{showPanel:mypanel,hidePanel:!mypanel}" ng-show="mypanel" style="z-index:1;position:absolute;left:25%">
+                    <pms001 ng-if="tab.page.identify == 'pms001'"></pms001>
+                    <purgroup-addcomponent ng-if="tab.page.identify == 'pms002'"></purgroup-addcomponent>
+
+                    <pms003 ng-if="tab.page.identify == 'pms003'"></pms003>
+                    <per-mission ng-if="tab.page.identify == 'details'"></per-mission>
+                </div>
+            </div>
+
+            <!-- loading效果部分，可以替换为别的内容来进行替代 -->
+            <div class="panel-body" ng-if="loadFlag == false">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-primary" role="progressbar"
+                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

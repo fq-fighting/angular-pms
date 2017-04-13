@@ -1,0 +1,18 @@
+<div class="row aosTopLayout" style="margin:0;background:#fff;">
+    <div class="mesTop_bg">
+        <span class="messager"><i></i></span>
+        <span class="setting" ng-click="loginBtn()">
+            <i></i>
+            <ol ng-hide="hidelogout"  ng-mouseleave="hidelogout = true" style="padding:0;">
+                <li onclick="loginOut()">退出登录</li>
+            </ol>
+        </span>
+        <span class="dateText">{{datetime+' '+week}}</span>
+    </div>
+</div>
+<script>
+    function loginOut(){
+        window.location.href = "../../../../../Web/src/js/components/login/html/scm_login.html";
+
+    }
+</script>

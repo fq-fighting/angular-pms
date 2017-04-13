@@ -1,0 +1,65 @@
+<div class="slidePanel"  ng-mouseenter="mouseIn()" ng-mouseleave="mouseOut()" style="transition:all linear 0.5s;width:234px;height:100%;position:absolute;left:{{slideW}}px">
+        <div id="pushBtn" ng-click="treeSlide()" ng-show="showPushBtn" style="z-index:1000;"><span class="inpush"></span><span class="inpush"></span></div>
+        <div class="user">
+            <div class="userphoto"></div>
+            <div class="username"><span>王先森</span></div>
+        </div>
+        <div id="nav">
+            <div class="panel-body">
+                <div class="tree">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li ng-repeat="item in tree" ng-class="{slideli:item.closed==false}" ng-click="listslide()">
+                            <div ng-if="$index == 0" ng-click="addTab({title:item.text,identify:'home'})">
+                                <span class="glyphicon" ng-class="item.glyphicon" ></span>
+                                <a class="maintitle">{{item.text}}</a>
+                            </div>
+                            <div ng-if="$index > 0" ng-click="item.closed=!item.closed">
+                                <span class="glyphicon" ng-class="item.glyphicon" ></span>
+                                <a class="maintitle">{{item.text}}</a>
+                                <span class="glyphicon rightIcon" ng-class=" item.closed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'" ng-if="item.children != undefined"></span>
+                            </div>
+                            <ul ng-hide="item.closed" class="slideDown">
+                                <li ng-repeat="childItem in item.children" ng-class="{closed:false}" ng-click="addTab({title:childItem.text,identify:childItem.identify})">
+                                    <a>{{childItem.text}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br style="clear:both;"/>
+        </div>
+</div>
+<div id="slideShade" ng-class="{showS:showShade,hideS:!showShade}" ng-mouseenter="mouseIn()" ng-mouseleave="mouseOut()" style="transition:all linear 0.5s;"></div>
+    <div id="tabsWrapper" class="" style="transition:all linear 0.5s;width:100%;float:left;padding-left:{{tabLeft}}px;">
+        <div class="alltabs" style="position: absolute;top: -28px;z-index: 2;" ng-click="displtabs()">
+            <ul class="nav nav-tabs ultabs" id="tabs" style="transition:all linear 0.5s;padding-left:{{tabNav}}px;position: absolute;top: 0;left: 0;">
+                <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.page.id)}" style="width: 160px;">
+                    <a href='#' data-toggle='tab' aria-expanded='true' ng-click="onClickTab(tab.page.id)">{{tab.page.title}}<span ng-if="$index != 0"ng-click="delTab(tab.page.id)" class="delIcon"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="tabContent" style="box-sizing:border-box;">
+                <div ng-repeat="tab in tabs" class='tab-pane' ng-class="{active:isActiveTab(tab.page.id)}">
+                    <div id="{{tab.page.id}}" class="tab-pane fade in active">
+                        <div ng-if="tab.page.type == 1" id="tableIf">
+                            <scm-table></scm-table>
+                        </div>
+                        <div ng-if="tab.page.type == 2" id="homeIf">
+                            <div id="home">
+                                <img src="../../../../static/images/mainiway.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="olbtn" style="margin-left:-20px;padding-left: 224px;position: absolute;width: 100%;height: 29px;margin-top: -27px;display: none;z-index: 1;">
+    <button class="btn1" style="" ng-click="leftslide()"><<</button>
+    <button class="btn2" style="float:right;margin-right:480px;" ng-click="rightslide()">>></button>
+</div>
+

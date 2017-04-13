@@ -1,0 +1,61 @@
+<!--@@@@@@@新增弹框@@@@@@-->
+<div class="movePanel" move-directive>
+    <div class="panel panel-info dialog_level_1">
+        <div class="panel-heading">
+            <h4 class="modal-title">公司新增</h4>
+        </div>
+        <div class="panel-body" style="height:200px;">
+            <form role="form" name="myForm" ng-submit="submitForm(myForm.$valid)" class="form-horizontal" novalidate>
+                <li>
+                    <span><small>名称</small></span>
+                    <input type="text" ng-model="RMS.name" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+                </li>
+                <li>
+                    <span><small>联系人</small></span>
+                    <input type="text" ng-model="RMS.linkman" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+                </li>
+                <li>
+                    <span><small>座机</small></span>
+                    <input type="text" ng-model="RMS.tel" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+
+                </li>
+                <li>
+                    <span><small>联系方式</small></span>
+                    <input type="text" ng-model="RMS.phone" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+
+                </li>
+                <li>
+                    <span><small>地址</small></span>
+                    <input type="text" ng-model="RMS.address" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+
+                </li>
+                <li>
+                    <span><small>邮编</small></span>
+                    <input type="text" ng-model="RMS.post" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+
+                </li>
+                <li>
+                    <span><small>传真</small></span>
+                    <input type="text" ng-model="RMS.fax" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+
+                </li>
+                <li>
+                    <span style="vertical-align: top;"><small>备注</small></span>
+                    <textarea ng-model="RMS.remark" ng-disabled="disabled"></textarea>
+
+                </li>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <button ng-if="buttonType =='add'" class="btn btn-primary" type="button" ng-click="btnsave()">保存</button>
+            <button  ng-if="buttonType =='modify'" class="btn btn-primary" type="button" ng-click="modify()">修改</button>
+            <button  ng-if="buttonType =='closed'" class="btn btn-primary" type="button" ng-click="btnclosed()">关闭</button>
+            <button ng-if="cancel" class="btn btn-warning" type="button" ng-click="btncancel()">取消</button>
+        </div>
+    </div>
+</div>
+<pop-up ng-show="dialogpanel"></pop-up>
+
+
+
+

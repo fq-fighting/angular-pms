@@ -1,0 +1,58 @@
+$cur: pointer;
+.mesTop_bg{
+  width:100%;
+  height:60px;
+  background:url("../../../../static/images/antwork.png") no-repeat;
+  background-size:214px 40px;
+  background-position: 10px 10px;
+  .messager,.setting{
+    position:relative;
+    float:right;
+    padding:16px 20px 16px 0;
+    display: inline-block;
+    cursor:$cur;
+
+  }
+  .messager i{
+    width:22px;
+    height:27px;
+    display: inline-block;
+    background:url("../../../../static/images/ring.png") no-repeat;
+
+  }
+  .setting i{
+    width:29px;
+    height:27px;
+    display: inline-block;
+    background:url("../../../../static/images/set.png") no-repeat;
+  }
+  .setting ol{
+    position: absolute;
+    top:50px;
+    right:0px;
+    width:160px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    overflow:hidden;
+    zoom:1;
+    z-index: 1;
+    li{
+      float: left;
+      height:30px;
+      width:160px;
+      line-height: 30px;
+      font-size:16px;
+      text-align: center;
+      list-style: none;
+      cursor:$cur;
+    }
+    li:hover{
+      background-color:#ddd;
+    }
+  }
+  .dateText{
+    float:right;
+    line-height:25px;
+    margin:17px 20px 17px 0;
+  }
+}

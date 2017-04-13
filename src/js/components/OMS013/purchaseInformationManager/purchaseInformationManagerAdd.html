@@ -1,0 +1,61 @@
+<!--@@@@@@@新增弹框@@@@@@-->
+<div class="movePanel" move-directive>
+    <div class="panel panel-info dialog_level_1">
+        <div class="panel-heading">
+            <h4 class="modal-title">权限新增</h4>
+        </div>
+        <div class="panel-body" style="height:200px;">
+            <form role="form" name="myForm" ng-submit="submitForm(myForm.$valid)" class="form-horizontal" novalidate>
+                <li>
+                    <span><small>权限名称</small></span>
+                    <input type="text" ng-model="myForm.PUR_PERSON_NAME.PUR_PERSON_NAME" value="{{myForm.PUR_PERSON_NAME.PUR_PERSON_NAME}}" class="form-control" name="PUR_PERSON_NAME" placeholder="请输入"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>权限路由</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="myForm.LINE_TYPE_NAME.LINE_TYPE_NAME" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>权限类别</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="myForm.LINE_TYPE_NAME.LINE_TYPE_NAME" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>权限类型</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="myForm.LINE_TYPE_NAME.LINE_TYPE_NAME" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <span><small>菜单图标</small></span>
+                    <input type="text" ng-click="openModal('PUR_MAN')" ng-model="row.id" value="{{myForm.PUR_PERSON_NAME.PUR_PERSON_NAME}}" class="form-control" name="PUR_PERSON_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>父级权限</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="row.name" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>打开方式</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="myForm.LINE_TYPE_NAME.LINE_TYPE_NAME" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>排序号</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="myForm.LINE_TYPE_NAME.LINE_TYPE_NAME" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.save()">保存</button>
+            <button  ng-if="buttonType =='modify'" class="btn btn-primary" type="button" ng-click="$ctrl.modify()">修改</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<!--@@@@@@@二级弹框@@@@@@-->
+<div ng-show="dialogpanel" ng-class="{showDialog:dialogpanel,hideDialog:!dialogpanel}" style="position:absolute;">
+    <pop-up></pop-up>
+</div>

@@ -1,0 +1,74 @@
+html , body {
+    height:100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.row{margin-left:0;margin-right:0;}
+body{
+    background:url("../images/login_background.png") no-repeat center center;
+}
+.pmsbg{
+    text-align: center;
+    margin:32px auto 10%;
+}
+.login ul{
+    overflow: hidden;
+    zoom: 1;
+}
+.login li{
+    list-style: none;
+
+}
+.inputUl{
+    text-align: right;
+}
+.pc{
+    padding-left: 90px;
+}
+.login li input{
+    border: 1px solid;
+    border-color: #CCC;
+    background: #F5F5F5;
+    border-radius: 6px;
+    font-family: "微软雅黑 Light";
+    color : #000000;
+    width:342px;
+    height:48px;
+    margin-bottom:50px;
+    font-size:18px;
+}
+#account{
+    background:url("../images/person.png") no-repeat 15px center;
+    text-indent:60px;
+}
+#password{
+    background:url("../images/password.png") no-repeat 15px center;
+    text-indent:60px;
+}
+.login li  button{
+    border: 1px solid;
+    border-color: #446B9a;
+    background: #446B9a;
+    color:#fff;
+    font-family: "微软雅黑 Light";
+    font-size: 20px;
+    border-radius: 6px;
+    width:342px;
+    height:48px;
+}
+
+.login li  button:hover {
+    border-color: #7ab936;
+    background: #7ab936;
+}
+
+.foot{
+    background:#1c222a;
+    height:68px;
+    text-align: center;
+    color:#fff;
+    line-height: 68px;
+    position:fixed; left:0; bottom:0;
+
+}

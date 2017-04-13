@@ -1,0 +1,112 @@
+.dialog_level_1{
+  width:900px;
+  .panel-body{
+    padding-top:20px;
+    form{
+      width: 870px;
+      margin:0 auto;
+      li{
+        position:relative;
+        list-style:none;
+        width:290px;
+        text-align:right;
+        float:left;
+        margin-bottom:8px;
+        span{
+          display:inline-block;
+          width:100px;
+          margin-right:6px;
+        }
+        .form-control{
+          width:auto;
+          display:inline-block;
+        }
+        span.glyphicon-th-list{
+          position:absolute;
+          top:1px;
+          right:25px;
+          width:0;
+          height:0;
+          padding:0;
+          margin:0;
+        }
+      }
+    }
+  }
+  .panel-footer{
+    border:0;
+    .btn{
+      margin: 10px 5px 8px 20px;
+    }
+  }
+}
+.form-group{
+  margin-right:0;
+  margin-left:0;
+  small{
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    //margin-left: 35px;
+  }
+}
+//.popUp{
+//  width:900px;
+//  position:fixed;
+//  left:50%;
+//  top:50%;
+//  margin-left:-300px;
+//}
+//mixin需要在调用前声明
+@mixin animeConfig($name: '' , $duration:1s , $delay:0 , $count:1 , $mode:forwards){
+  animation-name:$name;
+  animation-duration:$duration;
+  animation-delay:$delay;
+  animation-iteration-count:$count;
+  animation-fill-mode:$mode;
+  /*Safari and Chrome*/
+  -webkit-animation-name:$name;
+  -webkit-animation-duration:$duration;
+  -webkit-animation-delay:$delay;
+  -webkit-animation-iteration-count:$count;
+  -webkit-animation-fill-mode:$mode;
+}
+.showDialog{
+  @include animeConfig(dialogIn,0.5s,0,1);
+}
+.hideDialog{
+  @include animeConfig(dialogOut,0.5s,0,1);
+}
+@keyframes dialogIn {
+  0% {
+     top:-900px;
+  }
+  100% {
+    top:0px;
+  }
+}
+@-webkit-keyframes dialogIn {
+  0% {
+    top:-900px;
+  }
+  100% {
+    top:0px;
+  }
+}
+@keyframes dialogOut {
+  0% {
+    top:0px;
+  }
+  100% {
+    top:-900px;
+  }
+}
+@-webkit-keyframes dialogOut {
+  0% {
+    top:0px;
+  }
+  100% {
+    top:-900px;
+  }
+}
+

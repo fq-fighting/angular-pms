@@ -1,0 +1,68 @@
+<!--@@@@@@@新增弹框@@@@@@-->
+<div class="movePanel" move-directive>
+    <div class="panel panel-info dialog_level_1">
+        <div class="panel-heading">
+            <h4 class="modal-title">{{title}}</h4>
+        </div>
+        <div class="panel-body" style="height:200px;">
+            <form role="form" name="myForm" ng-submit="submitForm(myForm.$valid)" class="form-horizontal" novalidate>
+                <li>
+                    <span style="margin-top: 8px"><small>权限名称</small></span>
+                    <!--<span ng-class="{'has-error' : myForm.LEGAL_PERSON.$invalid}">-->
+                    <div style="float:right;" ng-class="{'has-error' : myForm.Name.$invalid}">
+                    <input type="text" name="Name" ng-model="RMS.name" class="form-control" placeholder="请输入" ng-disabled="disabled" required/>
+                    </div>
+                    <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="padding-right:20px"-->
+                          <!--ng-show="myForm.Name.$dirty && myForm.Name.$valid"></span>-->
+                    <!--</span>-->
+                </li>
+                <li>
+                    <span style="margin-top: 8px"><small>权限路由</small></span>
+                    <div style="float:right;" ng-class="{'has-error' : myForm.Route.$invalid}">
+                    <input type="text" ng-model="RMS.route" name="Route" class="form-control" placeholder="请输入" ng-disabled="disabled" required/>
+                    </div>
+                </li>
+                <li>
+                    <span><small>权限类别</small></span>
+                    <select class="form-control" style="width: 170px;" ng-model="RMS.sort" ng-options="item.id as item.text for item in PrivilegeClass" ng-disabled="disabled"></select>
+                </li>
+                <li>
+                    <span><small>权限类型</small></span>
+                    <select class="form-control" style="width: 170px;" ng-model="RMS.type" ng-options="item.id as item.text for item in PermissionType" ng-disabled="disabled"></select>
+                </li>
+                <li>
+                    <span><small>菜单图标</small></span>
+                    <input type="text" ng-model="RMS.menuCls" class="form-control" placeholder="请输入" ng-disabled="disabled"/>
+
+                </li>
+                <li>
+                    <span><small>父级权限</small></span>
+                    <input type="text" ng-click="openModal('LongParentAuthId')" ng-model="RMS.parentAuthName" value="{{RMS.parentAuthId}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择" ng-disabled="disabled"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <span><small>打开方式</small></span>
+                        <select class="form-control" style="width: 170px;" ng-model="RMS.openMode" ng-options="item.id as item.text for item in openMode" ng-disabled="disabled"></select>
+                </li>
+                <li>
+                    <span><small>排序号</small></span>
+                    <input type="text" ng-model="RMS.orders" class="form-control" placeholder="请选择" ng-disabled="disabled"/>
+
+                </li>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <button ng-if="buttonType =='add'" class="btn btn-primary" type="button" ng-click="btnsave()">保存</button>
+            <button  ng-if="buttonType =='modify'" class="btn btn-primary" type="button" ng-click="modify()">修改</button>
+            <button  ng-if="buttonType =='closed'" class="btn btn-primary" type="button" ng-click="btnclosed()">关闭</button>
+            <button ng-if="cancel" class="btn btn-warning" type="button" ng-click="btncancel()">取消</button>
+        </div>
+    </div>
+</div>
+<!--@@@@@@@二级弹框@@@@@@-->
+<div ng-show="dialogpanel" ng-class="{showDialog:dialogpanel,hideDialog:!dialogpanel}" style="position:absolute;">
+    <pop-up></pop-up>
+</div>
+<div ng-show="dialogtree" ng-class="{showDialog:dialogtree,hideDialog:!dialogtree}" style="position:absolute;">
+    <common-box-tree></common-box-tree>
+</div>

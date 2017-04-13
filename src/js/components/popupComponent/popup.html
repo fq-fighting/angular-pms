@@ -1,0 +1,31 @@
+<div class="movePanel" move-directive>
+    <div class="panel panel-info dialog_level_2">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{title}}</h3>
+        </div>
+        <div class="panel-body">
+            <fieldset>
+                <legend>数据筛选</legend>
+                <form class="navbar-form row" role="search">
+                    <div class="whereInput" ng-repeat="where in wheres">
+                        <span><small>{{where.name_cn}}</small></span>
+                        <input  style="min-width:180px;" ng-if="where.type == 'text'" ng-model="$ctrl.textdata[where.name]" type="text" class="form-control" placeholder="{{where.name_cn}}">
+                        <select style="min-width:180px;" ng-if="where.type == 'select'" ng-click="look(this)" ng-model="select[where.name]" class="form-control" value="" ng-options="item as item.text for item in where.selectValue track by item.id"><option></option></select>
+                    </div>
+                    <div class="whereInput btn-box">
+                        <button type="submit" class="button" ng-click="$ctrl.search()">查询</button>
+                    </div>
+                </form>
+            </fieldset>
+
+            <hr style="border-top:1px solid #e5e5e5"/>
+            <div class="dataList">
+                <div class="easyui-datagrid dialog_table"></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.save()">确定</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">取消</button>
+        </div>
+    </div>
+</div>

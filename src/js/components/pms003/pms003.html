@@ -1,0 +1,46 @@
+<!--@@@@@@@新增弹框@@@@@@-->
+<div class="movePanel level-1" move-directive>
+    <div class="panel panel-info dialog_level_1">
+        <div class="panel-heading">
+            <h4 class="modal-title">pms003</h4>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="myForm" ng-submit="submitForm(myForm.$valid)" class="form-horizontal" novalidate>
+                <li>
+                    <span><small>业务类型</small></span>
+                    <input type="text" ng-click="openModal('PUR_MAN')" ng-model="myForm.PUR_PERSON_NAME.PUR_PERSON_NAME" value="{{myForm.PUR_PERSON_NAME.PUR_PERSON_NAME}}" class="form-control" name="PUR_PERSON_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li>
+                    <small>业务行类型</small>
+                    <input type="text" ng-click="openModal('LINE_TYPE_NAME')" ng-model="myForm.LINE_TYPE_NAME.LINE_TYPE_NAME" value="{{myForm.LINE_TYPE_NAME.LINE_TYPE_NAME}}" class="form-control" name="LINE_TYPE_NAME" placeholder="请选择"/>
+                    <span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+                </li>
+                <li class="btn-box">
+                    <button type="buttom" class="button" ng-click="">保存</button>
+                </li>
+            </form>
+            <br style="clear:both">
+            <div class="detail_list">
+                <div class="title">明细列表</div>
+                <div class="btn_list">
+                    <button type="button" class="btn" ng-click="">新增</button>
+                    <button type="button" class="btn" ng-click="">修改</button>
+                    <button type="button" class="btn" ng-click="">删除</button>
+                </div>
+                <div class="detail_table"></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button ng-if="buttonType =='add'" class="btn btn-primary" type="button" ng-click="$ctrl.save()">保存</button>
+            <button  ng-if="buttonType =='modify'" class="btn btn-primary" type="button" ng-click="$ctrl.modify()">修改</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<!--@@@@@@@二级弹框@@@@@@-->
+<div ng-show="dialogpanel" ng-class="{showDialog:dialogpanel,hideDialog:!dialogpanel}" style="position:absolute;">
+    <pop-up></pop-up>
+</div>
+
+

@@ -1,0 +1,317 @@
+//@@@@@@@@@@@@@@@@@@@@@@@左边树tree的样式@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+$bgcolor : #39495C;
+$treeColor : #89939E;
+$grayCol: #d4d6df;
+.user{
+  position:absolute;
+  width:100%;
+  height:150px;
+  background:#39495C;
+  padding-top:30px;
+  .userphoto{
+    width:80px;
+    height:80px;
+    margin:0 auto ;
+    border-radius:50% ;
+    background:url("../../../../static/images/user.jpg");
+    background-size:100% 100%
+  }
+  .username{
+    span{
+      display:block;
+      text-align:center;
+      margin:auto;
+    }
+    font-size:16px;
+    color:#fefefe;
+    font-family:"Microsoft YaHei[Regular]";
+    margin-top:15px;
+  }
+}
+.tree{
+  font-size:16px;
+  color:$treeColor;
+  .nav{
+      margin-left:12px;
+      margin-right:12px;
+
+  }
+  .nav >li {
+      border-radius: 4px;
+    &:hover {
+      .maintitle{
+        color:#fff;
+      }
+
+
+    }
+      div{
+        padding:7px 0 7px 20px;
+        &:hover{background-color: #4d6888;}
+      }
+  }
+
+  li{
+    margin:0!important;
+    list-style:none;
+    cursor:pointer;
+
+    ul{
+
+      li{
+        padding-left:40px;
+        padding-top: 7px!important;
+        padding-bottom: 8px!important;
+        &:hover{
+          background-color:#4D6888;
+          a{
+            color:#fff;
+          }
+        }
+
+      }
+    }
+
+    .rightIcon{
+      position:absolute;
+      top:12px;
+      right:30px;
+    }
+    a{
+      color:$treeColor;
+      text-decoration: none ;
+    }
+  }
+}
+#nav{
+  height:100%;
+  padding-top:150px;
+  .panel-body {
+    background:$bgcolor;
+    height:100%;
+  }
+}
+.slideli{
+  filter:alpha(opacity=9);
+ background-color: rgba(185,185,185,0.09);
+}
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@右边标签页部分样式@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+.alltabs{
+  width: 800px;
+  height: 28px;
+  position: relative;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+#tabsWrapper{
+  #tabs{
+    li{height:29px;}
+  }
+  /*margin-top:-29px!important;*/
+  .nav-tabs{
+    border:0px;
+  }
+  height:100%;
+  margin:{
+  }
+  .nav{
+    li{
+      padding:5px 35px;
+      a{
+        font-size:16px;
+        color:#2a3542;
+        font-family:"Microsoft YaHei[Regular]";
+        border:0px;
+        padding:0!important;
+        text-align:center;
+        background:transparent;
+      }
+    }
+    li.active{
+      background:url("../../../../static/images/tab.png");
+      background-size:100% 100%;
+    }
+  }
+  .tab-content{
+    background:$grayCol;
+    padding:10px 0 0 10px;
+    height:100%;
+    .tab-pane{
+      background:#fff;
+      height:100%;
+    }
+  }
+}
+.delIcon{
+  display:inline-block;
+  width:15px;
+  height:15px;
+  background:url("../../../../static/images/del.png");
+  background-size:100% 100%;
+  position:relative;
+  top:3px;
+  left:8px;
+  cursor:pointer;
+}
+#homeIf{
+  width:100%;
+  height:100%;
+  #home{
+    width:100%;
+    height:100%;
+    background-size:100%;
+    background:url("../../../../static/images/homeBg.png") no-repeat;
+    background-color:#FAFAFA;
+    img{
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin-top:-81px;
+      margin-left:-142px;
+
+    }
+  }
+}
+#tableIf{
+  width:100%;
+  height:100%;
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@推拉按钮的样式@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#pushBtn,#slideBtn{
+  width:29px;
+  height:66px;
+  position:absolute;
+  cursor:pointer;
+  top:50%;
+  left:100%;
+  margin-left:-1px;
+  background:url("../../../../static/images/push.png");
+  background-size:100% 100%;
+  .inpush{
+    background:url("../../../../static/images/inpush.png");
+    background-size:100% 100%;
+    width:21px;
+    height:29px;
+    display:inline-block;
+    position:absolute;
+    top:18px;
+    margin-left:-4px;
+  }
+  .inpush:nth-of-type(1){
+    left:3px;
+  }
+  .inpush:nth-of-type(2){
+    left:12px;
+  }
+}
+#slideShade{
+  height:100%;
+  background:url("../../../../static/images/shade.png");
+  background-size:100% 100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.nav{
+  .slideDown{
+    height:113px;
+    transition: height linear 0.5s;
+    overflow:hidden;
+  }
+  .ng-hide{
+    height:0;
+  }
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@设置动画
+//mixin需要在调用前声明
+@mixin animeConfig($name: '' , $duration:1s , $delay:0 , $count:1 , $mode:forwards){
+  animation-name:$name;
+  animation-duration:$duration;
+  animation-delay:$delay;
+  animation-iteration-count:$count;
+  animation-fill-mode:$mode;
+  /*Safari and Chrome*/
+  -webkit-animation-name:$name;
+  -webkit-animation-duration:$duration;
+  -webkit-animation-delay:$delay;
+  -webkit-animation-iteration-count:$count;
+  -webkit-animation-fill-mode:$mode;
+}
+.hideS{
+  @include animeConfig(fadeOut,0,0,1);
+}
+.showS{
+  @include animeConfig(fadeIn,0,0.5s,1);
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@定义动画
+@-webkit-keyframes fadeOut {
+  0% {
+    //opacity: 0;
+    width:65px;
+  }
+  100% {
+    //opacity: 100;
+    width:0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    //opacity: 0;
+    width:65px;
+  }
+  100% {
+    //opacity: 100;
+    width:0;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    //opacity: 0;
+    width:0;
+  }
+  100% {
+    //opacity: 100;
+    width:65px;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    //opacity: 0;
+    width:0;
+  }
+  100% {
+    //opacity: 100;
+    width:65px;
+  }
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@设置图标
+.glyphicon-authority:before{
+  content:'';
+  display:block;
+  width:16px;
+  height:16px;
+}
+@mixin iconConfig($iconName){
+  background:url("../../../../static/images/icons/" + $iconName +".png");
+  background-size:100% 100%;
+}
+.glyphicon-authority:before{
+  @extend .glyphicon-authority:before;
+  @include iconConfig(authority1);
+}
+.glyphicon-authorize:before{
+  @extend .glyphicon-authority:before;
+  @include iconConfig(authorize1);
+}
+.glyphicon-company:before{
+  @extend .glyphicon-authority:before;
+  @include iconConfig(company);
+}
+.glyphicon-user:before{
+  @extend .glyphicon-authority:before;
+  @include iconConfig(user);
+}
+
+
